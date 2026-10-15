@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Registration & Management Portal | ABESIT Ghaziabad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Notice Bar -->
+    <div class="top-notice-bar">
+        <div class="container">
+            <div class="top-notice-content">
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span><strong>ABES Institute of Technology (ABESIT)</strong>, Campus - NH-09, Ghaziabad (AKTU Code: 290)</span>
+                </div>
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>Technical Events Helpline: +91 9811002233 | events@abesit.in</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo-wrap">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>ABES<span>IT</span></h1>
+                        <p>Event Registration Portal</p>
+                    </div>
+                </a>
+
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="events.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+                    <li><a href="#schedule" class="nav-link"><i class="fa-solid fa-clock"></i> Schedule</a></li>
+                    <li><a href="#speakers" class="nav-link"><i class="fa-solid fa-microphone"></i> Speakers</a></li>
+                    <li><a href="register.html" class="nav-link"><i class="fa-solid fa-id-card"></i> Register</a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li class="nav-auth-buttons" id="navAuthButtons">
+                        <a href="login.html" class="btn btn-outline btn-sm">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                        </a>
+                        <a href="register.html" class="btn btn-accent btn-sm">
+                            <i class="fa-solid fa-user-plus"></i> Register Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <div class="hero-college-badge">
+                            <i class="fa-solid fa-award"></i>
+                            <span>ABES Institute of Technology • Technical Summit 2026</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Ignite Innovation at <br><span class="highlight">ABESIT Technical Events</span>
+                        </h1>
+                        <p class="hero-description">
+                            Empowering future engineers and researchers. Participate in flagship National Hackathons, Deep Learning Workshops, Faculty Development Programs (FDPs), Startup Expos, and Shark Tank Pitch Competitions.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="register.html" class="btn btn-accent btn-lg">
+                                <i class="fa-solid fa-bolt"></i> Register for Events
+                            </a>
+                            <a href="events.html" class="btn btn-outline-white btn-lg">
+                                <i class="fa-solid fa-calendar-check"></i> Explore All Events
+                            </a>
+                            <a href="login.html" class="btn btn-outline-white btn-lg" style="opacity: 0.9;">
+                                <i class="fa-solid fa-user-shield"></i> Portal Login
+                            </a>
+                        </div>
+                        <div class="hero-stats-row">
+                            <div class="stat-item">
+                                <h3>5+</h3>
+                                <p>Flagship Events</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>₹2.5L+</h3>
+                                <p>Prizes & Grants</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>1,000+</h3>
+                                <p>Expected Innovators</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Live Events Quick Glance Card -->
+                    <div class="hero-card-preview">
+                        <div class="hero-card-header">
+                            <h3 style="font-size:1.15rem; color:#ffffff; margin:0;">
+                                <i class="fa-solid fa-fire" style="color:var(--accent-color);"></i> Featured Spotlights
+                            </h3>
+                            <div class="live-indicator">
+                                <span class="live-dot"></span> Open For Registration
+                            </div>
+                        </div>
+
+                        <div class="hero-card-item">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                                <span class="badge badge-hackathon">Hackathon</span>
+                                <span style="font-size:0.75rem; color:#fbbf24; font-weight:600;">Nov 14-15, 2026</span>
+                            </div>
+                            <h4>HackABESIT 2026: 36h National Hackathon</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Innovation Arena, ABESIT Ghaziabad</p>
+                        </div>
+
+                        <div class="hero-card-item">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                                <span class="badge badge-workshop">Workshop</span>
+                                <span style="font-size:0.75rem; color:#60a5fa; font-weight:600;">Nov 21-22, 2026</span>
+                            </div>
+                            <h4>Hands-on Deep Learning & GenAI Workshop</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> AI & Robotics Lab, Room 302</p>
+                        </div>
+
+                        <div class="hero-card-item" style="margin-bottom:0;">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                                <span class="badge badge-startupexpo">Startup Expo</span>
+                                <span style="font-size:0.75rem; color:#4ade80; font-weight:600;">Dec 12, 2026</span>
+                            </div>
+                            <h4>ABESIT Startup Expo & Innovation Summit</h4>
+                            <p><i class="fa-solid fa-location-dot"></i> Incubation Centre & Grounds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Events Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">About Our Technical Summit</span>
+                    <h2 class="section-title">Driving Engineering Excellence & Innovation</h2>
+                    <p class="section-subtitle">
+                        ABESIT Ghaziabad provides a platform for students, faculty, and industry professionals to collaborate, build impactful technical solutions, and accelerate startup ideas.
+                    </p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="form-card" style="text-align:center; padding: 2.25rem 1.5rem;">
+                        <div style="width:64px;height:64px;border-radius:12px;background:#fee2e2;color:#dc2626;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.25rem;">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 style="font-size:1.25rem; margin-bottom:0.75rem;">Hackathons & Coding</h3>
+                        <p style="color:var(--text-secondary); font-size:0.925rem;">
+                            Engage in 36-hour intense hackathons. Tackle real-world problems spanning AI, Smart Mobility, Cyber Security, and FinTech with round-the-clock mentorship.
+                        </p>
+                    </div>
+
+                    <div class="form-card" style="text-align:center; padding: 2.25rem 1.5rem;">
+                        <div style="width:64px;height:64px;border-radius:12px;background:#e0e7ff;color:#4338ca;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.25rem;">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 style="font-size:1.25rem; margin-bottom:0.75rem;">Hands-on Workshops</h3>
+                        <p style="color:var(--text-secondary); font-size:0.925rem;">
+                            Practical lab-oriented masterclasses on Generative AI, Cloud Native DevOps, Machine Learning, and Robotics led by veteran engineers and researchers.
+                        </p>
+                    </div>
+
+                    <div class="form-card" style="text-align:center; padding: 2.25rem 1.5rem;">
+                        <div style="width:64px;height:64px;border-radius:12px;background:#fef3c7;color:#d97706;display:flex;align-items:center;justify-content:center;font-size:1.75rem;margin:0 auto 1.25rem;">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 style="font-size:1.25rem; margin-bottom:0.75rem;">FDPs for Educators</h3>
+                        <p style="color:var(--text-secondary); font-size:0.925rem;">
+                            One-week Faculty Development Programs updating college professors on emerging industry workflows, research methodologies, and cloud architectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Showcase Section -->
+        <section class="section section-alt" id="events-preview">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Featured Events</span>
+                    <h2 class="section-title">Explore Upcoming Technical Events</h2>
+                    <p class="section-subtitle">
+                        Select an event below to register. Registration is open to college students, faculty members, and external participants across India.
+                    </p>
+                </div>
+
+                <div class="grid-3" id="homeEventsGrid">
+                    <!-- Loaded dynamically via AJAX from /api/events -->
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                        <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--primary-color);"></i>
+                        <p style="margin-top: 0.75rem; color: var(--text-secondary);">Loading technical events...</p>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top: 3rem;">
+                    <a href="events.html" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-list-ul"></i> View All Events & Full Schedule
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Schedule Section -->
+        <section class="section" id="schedule">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Event Schedule</span>
+                    <h2 class="section-title">Timeline of Major Activities</h2>
+                    <p class="section-subtitle">
+                        Check the detailed itinerary across our technical tracks. Plan your days effectively.
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-tabs" id="scheduleTabs">
+                        <button class="tab-btn active" onclick="switchScheduleTrack('hackathon', this)">
+                            <i class="fa-solid fa-laptop-code"></i> HackABESIT 2026
+                        </button>
+                        <button class="tab-btn" onclick="switchScheduleTrack('aiworkshop', this)">
+                            <i class="fa-solid fa-microchip"></i> AI Workshop
+                        </button>
+                        <button class="tab-btn" onclick="switchScheduleTrack('expo', this)">
+                            <i class="fa-solid fa-rocket"></i> Startup Expo & Pitch
+                        </button>
+                    </div>
+
+                    <!-- Track 1: HackABESIT Timeline -->
+                    <div class="schedule-track" id="track-hackathon">
+                        <div class="timeline-item">
+                            <div class="timeline-time">Day 1 - 09:00 AM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Participant Check-in & ID Kit Distribution</h3>
+                                <p class="timeline-desc">Verification of student confirmation slips and badge distribution at the Auditorium Foyer.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Day 1 - 10:30 AM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Grand Opening & Problem Statements Unveiled</h3>
+                                <p class="timeline-desc">Keynote by Director, ABESIT and release of 6 specialized problem statements across tracks.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Day 1 - 12:00 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Hacking Begins: Round 1 Sprint</h3>
+                                <p class="timeline-desc">36-hour non-stop hacking commences. Mentors from Google Cloud and Microsoft review project architectures.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Day 2 - 09:00 AM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Prototype Submission & Semi-Final Demos</h3>
+                                <p class="timeline-desc">GitHub repository freeze, code quality verification, and jury demo evaluations.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">Day 2 - 04:00 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Grand Finale Pitch & Prize Distribution</h3>
+                                <p class="timeline-desc">Top 10 finalist stage presentations, announcement of winners, and ₹1,50,000 prize distribution.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 2: AI Workshop Timeline -->
+                    <div class="schedule-track" id="track-aiworkshop" style="display: none;">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM - 12:30 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Transformers & Large Language Models Deep Dive</h3>
+                                <p class="timeline-desc">Theory of attention mechanism, tokenization, embeddings, and quantized model architectures.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">01:30 PM - 03:30 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Hands-on: Building Enterprise RAG Applications</h3>
+                                <p class="timeline-desc">Step-by-step implementation using LangChain, Vector DBs (Chroma/Pinecone), and LLM pipelines.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">03:45 PM - 04:45 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Model Deployment & Certificate Distribution</h3>
+                                <p class="timeline-desc">Deploying on Docker containers and hands-on participation certificate distribution.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Track 3: Startup Expo Timeline -->
+                    <div class="schedule-track" id="track-expo" style="display: none;">
+                        <div class="timeline-item">
+                            <div class="timeline-time">10:00 AM - 01:00 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Startup Expo Pavilion Open to Public</h3>
+                                <p class="timeline-desc">Over 40 working prototype stalls exhibiting IoT, EdTech, Healthcare, and CleanTech solutions.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">02:00 PM - 04:00 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Shark Tank ABESIT: 5-Minute Elevator Pitches</h3>
+                                <p class="timeline-desc">Finalist teams pitch to angel investors and venture capitalists for ₹5 Lakh seed grants.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-time">04:30 PM - 05:30 PM</div>
+                            <div class="timeline-content">
+                                <h3 class="timeline-title">Award of Incubation & Seed Term Sheets</h3>
+                                <p class="timeline-desc">Announcement of top 3 startup winners and grant vouchers at Main Auditorium.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keynote Speakers Section -->
+        <section class="section section-alt" id="speakers">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-tag">Eminent Speakers</span>
+                    <h2 class="section-title">Learn from Tech Titans & Industry Leaders</h2>
+                    <p class="section-subtitle">
+                        Gain insights from leaders shaping modern Cloud, AI, and Venture Capital ecosystems.
+                    </p>
+                </div>
+
+                <div class="grid-4">
+                    <div class="speaker-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Vikramaditya Roy" class="speaker-avatar">
+                        <h3 class="speaker-name">Vikramaditya Roy</h3>
+                        <p class="speaker-role">Principal Cloud Architect</p>
+                        <p class="speaker-org">Google Cloud India</p>
+                        <div class="speaker-topic">"Microservices & GenAI Scaling"</div>
+                    </div>
+
+                    <div class="speaker-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" alt="Ananya Deshmukh" class="speaker-avatar">
+                        <h3 class="speaker-name">Ananya Deshmukh</h3>
+                        <p class="speaker-role">Staff Engineer & Mentor</p>
+                        <p class="speaker-org">Microsoft Research</p>
+                        <div class="speaker-topic">"Distributed Systems Resilience"</div>
+                    </div>
+
+                    <div class="speaker-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Dr. Sameer Kulkarni" class="speaker-avatar">
+                        <h3 class="speaker-name">Dr. Sameer Kulkarni</h3>
+                        <p class="speaker-role">Lead AI Scientist</p>
+                        <p class="speaker-org">NVIDIA AI Tech Center</p>
+                        <div class="speaker-topic">"Quantized LLMs & Transformers"</div>
+                    </div>
+
+                    <div class="speaker-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" alt="Radhika Bansal" class="speaker-avatar">
+                        <h3 class="speaker-name">Radhika Bansal</h3>
+                        <p class="speaker-role">Managing Partner</p>
+                        <p class="speaker-org">Nexus Ventures</p>
+                        <div class="speaker-topic">"College Prototype to Venture Scale"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); color: #ffffff; text-align: center;">
+            <div class="container">
+                <h2 style="color: #ffffff; font-size: 2.5rem; margin-bottom: 1rem;">Ready to Showcase Your Talent?</h2>
+                <p style="color: #cbd5e1; font-size: 1.15rem; max-width: 680px; margin: 0 auto 2rem;">
+                    Don't let manual paperwork delay your registration. Fill our streamlined online form, obtain your instant registration badge, and be part of the largest tech summit at ABESIT.
+                </p>
+                <div style="display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap;">
+                    <a href="register.html" class="btn btn-accent btn-lg">
+                        <i class="fa-solid fa-user-plus"></i> Register for an Event Now
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-white btn-lg">
+                        <i class="fa-solid fa-phone"></i> Contact Event Organizers
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo-wrap" style="margin-bottom:1.25rem;">
+                        <div class="brand-icon" style="width:40px; height:40px; font-size:1.15rem;">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h2 style="font-size:1.15rem; color:#ffffff; margin:0;">ABES<span>IT</span></h2>
+                            <p style="color:#94a3b8; font-size:0.75rem;">Ghaziabad, Uttar Pradesh</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        ABES Institute of Technology (ABESIT) is a premier engineering institution affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow.
+                    </p>
+                    <div style="display:flex; gap:0.75rem;">
+                        <a href="#" style="color:#94a3b8; font-size:1.15rem;" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" style="color:#94a3b8; font-size:1.15rem;" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" style="color:#94a3b8; font-size:1.15rem;" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" style="color:#94a3b8; font-size:1.15rem;" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="events.html"><i class="fa-solid fa-angle-right"></i> All Technical Events</a></li>
+                        <li><a href="register.html"><i class="fa-solid fa-angle-right"></i> Online Registration</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right"></i> Participant Login</a></li>
+                        <li><a href="login.html?role=admin"><i class="fa-solid fa-angle-right"></i> Admin Login</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Event Tracks</h4>
+                    <ul class="footer-links">
+                        <li><a href="events.html?cat=Hackathon"><i class="fa-solid fa-angle-right"></i> National Hackathons</a></li>
+                        <li><a href="events.html?cat=Workshop"><i class="fa-solid fa-angle-right"></i> AI & DL Workshops</a></li>
+                        <li><a href="events.html?cat=FDP"><i class="fa-solid fa-angle-right"></i> Faculty Dev Programs</a></li>
+                        <li><a href="events.html?cat=Startup+Expo"><i class="fa-solid fa-angle-right"></i> Startup Expos</a></li>
+                        <li><a href="events.html?cat=Pitch+Competition"><i class="fa-solid fa-angle-right"></i> Shark Tank Pitches</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Campus: 19th Km Stone, NH-09, Vijay Nagar, Ghaziabad, UP - 201009</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 9811002233, 0120-2845112</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>events@abesit.in, info@abesit.in</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.abesit.in</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 ABES Institute of Technology (ABESIT), Ghaziabad. All Rights Reserved.</div>
+                <div>Developed for College Event Registration & Management System</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Track switcher for timeline tabs
+        function switchScheduleTrack(trackId, btnEl) {
+            document.querySelectorAll('.schedule-track').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#scheduleTabs .tab-btn').forEach(b => b.classList.remove('active'));
+            
+            const target = document.getElementById('track-' + trackId);
+            if (target) target.style.display = 'block';
+            if (btnEl) btnEl.classList.add('active');
+        }
+
+        // Fetch and display featured events on home page
+        document.addEventListener('DOMContentLoaded', async () => {
+            const grid = document.getElementById('homeEventsGrid');
+            if (!grid) return;
+
+            try {
+                const data = await apiGet('/api/events');
+                if (!data.events || data.events.length === 0) {
+                    grid.innerHTML = '<p style="text-align:center;grid-column:1/-1;">No events currently listed.</p>';
+                    return;
+                }
+
+                // Show first 3 events
+                const featured = data.events.slice(0, 3);
+                grid.innerHTML = featured.map(evt => {
+                    const badgeClass = 'badge-' + evt.category.toLowerCase().replace(/\s+/g, '');
+                    return `
+                        <div class="event-card">
+                            <div class="event-card-header">
+                                <span class="badge ${badgeClass}">${evt.category}</span>
+                                <span style="font-size:0.8rem; font-weight:600; color:var(--text-secondary);">
+                                    <i class="fa-solid fa-users"></i> ${evt.registeredCount}/${evt.maxSeats} Seats
+                                </span>
+                            </div>
+                            <div class="event-card-body">
+                                <h3 class="event-card-title">${evt.title}</h3>
+                                <p class="event-card-desc">${evt.shortDescription}</p>
+                                <ul class="event-meta-list">
+                                    <li class="event-meta-item">
+                                        <i class="fa-solid fa-calendar"></i>
+                                        <span>${evt.eventDate}</span>
+                                    </li>
+                                    <li class="event-meta-item">
+                                        <i class="fa-solid fa-clock"></i>
+                                        <span>${evt.eventTime}</span>
+                                    </li>
+                                    <li class="event-meta-item">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                        <span>${evt.venue}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="event-card-footer">
+                                <a href="events.html?id=${evt._id}" class="btn btn-outline btn-sm">
+                                    <i class="fa-solid fa-circle-info"></i> Details
+                                </a>
+                                <a href="register.html?eventId=${evt._id}" class="btn btn-accent btn-sm">
+                                    <i class="fa-solid fa-id-card"></i> Register Now
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (err) {
+                grid.innerHTML = '<p style="text-align:center;grid-column:1/-1;color:var(--danger-color);">Error loading events. Please refresh.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
