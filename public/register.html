@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration | ABESIT Ghaziabad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Notice Bar -->
+    <div class="top-notice-bar">
+        <div class="container">
+            <div class="top-notice-content">
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span><strong>ABES Institute of Technology (ABESIT)</strong>, Ghaziabad</span>
+                </div>
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Need Help Registering? Call: +91 9811002233</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo-wrap">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>ABES<span>IT</span></h1>
+                        <p>Event Registration Portal</p>
+                    </div>
+                </a>
+
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="events.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+                    <li><a href="index.html#schedule" class="nav-link"><i class="fa-solid fa-clock"></i> Schedule</a></li>
+                    <li><a href="index.html#speakers" class="nav-link"><i class="fa-solid fa-microphone"></i> Speakers</a></li>
+                    <li><a href="register.html" class="nav-link active"><i class="fa-solid fa-id-card"></i> Register</a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li class="nav-auth-buttons" id="navAuthButtons">
+                        <a href="login.html" class="btn btn-outline btn-sm">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                        </a>
+                        <a href="register.html" class="btn btn-accent btn-sm">
+                            <i class="fa-solid fa-user-plus"></i> Register Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header Banner -->
+        <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); color:#ffffff; padding: 3rem 0 2.5rem;">
+            <div class="container" style="text-align: center;">
+                <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--accent-color); border-color: rgba(255,255,255,0.2);">
+                    Module 2: Online Registration
+                </span>
+                <h1 style="color:#ffffff; font-size:2.4rem; margin-bottom: 0.5rem;">Event Registration Form</h1>
+                <p style="color:#cbd5e1; font-size: 1rem; max-width: 600px; margin: 0 auto;">
+                    Select your participation category below. Complete the form to receive an official ABESIT registration pass.
+                </p>
+            </div>
+        </section>
+
+        <!-- Registration Container -->
+        <section class="section" style="padding: 3rem 0 5rem;">
+            <div class="container" style="max-width: 850px;">
+                <div class="form-card">
+                    <!-- Participant Category Switcher Tabs -->
+                    <div class="form-tabs">
+                        <button type="button" class="form-tab-btn reg-role-tab active" data-role="student">
+                            <i class="fa-solid fa-user-graduate"></i> Student Registration
+                        </button>
+                        <button type="button" class="form-tab-btn reg-role-tab" data-role="faculty">
+                            <i class="fa-solid fa-chalkboard-user"></i> Faculty Registration
+                        </button>
+                        <button type="button" class="form-tab-btn reg-role-tab" data-role="external">
+                            <i class="fa-solid fa-briefcase"></i> External Participant
+                        </button>
+                    </div>
+
+                    <form id="registrationForm" novalidate>
+                        <!-- 1. Event Selection -->
+                        <div class="form-group">
+                            <label for="regEventId" class="form-label">
+                                Select Event <span class="required">*</span>
+                            </label>
+                            <select id="regEventId" class="form-control" required>
+                                <option value="">Loading events...</option>
+                            </select>
+                            <div class="invalid-feedback">Please choose an event to register.</div>
+                        </div>
+
+                        <!-- 2. Personal Information -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="regFullName" class="form-label">
+                                    Full Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="regFullName" class="form-control" placeholder="e.g. Rahul Verma" required>
+                                <div class="invalid-feedback">Full name is required (min 3 characters).</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="regEmail" class="form-label">
+                                    Email Address <span class="required">*</span>
+                                </label>
+                                <input type="email" id="regEmail" class="form-control" placeholder="e.g. rahul.verma@abesit.in" required>
+                                <div class="invalid-feedback">Valid email address required.</div>
+                                <div class="form-text">Your confirmation pass and event updates will be sent here.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="regPhone" class="form-label">
+                                    Mobile Phone Number <span class="required">*</span>
+                                </label>
+                                <input type="tel" id="regPhone" class="form-control" placeholder="10-digit mobile number" required>
+                                <div class="invalid-feedback">Valid 10-digit phone number is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="regCollege" class="form-label">
+                                    College / Institution Name <span class="required">*</span>
+                                </label>
+                                <input type="text" id="regCollege" class="form-control" value="ABES Institute of Technology (ABESIT), Ghaziabad" required>
+                                <div class="invalid-feedback">Please enter your college or institution name.</div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Category Specific Fields -->
+
+                        <!-- Student Specific Fields -->
+                        <div id="studentSpecificGroup">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regRollNo" class="form-label">
+                                        University Roll Number <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="regRollNo" class="form-control" placeholder="e.g. 2202900100085">
+                                    <div class="invalid-feedback">Roll Number is required for students.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regDepartmentStudent" class="form-label">
+                                        Branch / Department <span class="required">*</span>
+                                    </label>
+                                    <select id="regDepartmentStudent" class="form-control">
+                                        <option value="">-- Select Department --</option>
+                                        <option value="Computer Science & Engineering">Computer Science & Engineering (CSE)</option>
+                                        <option value="Information Technology">Information Technology (IT)</option>
+                                        <option value="CSE (Artificial Intelligence)">CSE (Artificial Intelligence)</option>
+                                        <option value="CSE (Data Science)">CSE (Data Science)</option>
+                                        <option value="Electronics & Communication">Electronics & Communication (ECE)</option>
+                                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                        <option value="Civil Engineering">Civil Engineering</option>
+                                        <option value="Master of Computer Applications">MCA</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select your department.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="regYearStudent" class="form-label">Academic Year</label>
+                                <select id="regYearStudent" class="form-control">
+                                    <option value="1st Year B.Tech">1st Year B.Tech</option>
+                                    <option value="2nd Year B.Tech">2nd Year B.Tech</option>
+                                    <option value="3rd Year B.Tech" selected>3rd Year B.Tech</option>
+                                    <option value="4th Year B.Tech">4th Year B.Tech</option>
+                                    <option value="Postgraduate / MCA">Postgraduate / MCA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Faculty Specific Fields -->
+                        <div id="facultySpecificGroup" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regEmpId" class="form-label">
+                                        Faculty Employee ID <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="regEmpId" class="form-control" placeholder="e.g. FAC-IT-104">
+                                    <div class="invalid-feedback">Faculty Employee ID is required.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regDesignationFaculty" class="form-label">
+                                        Academic Designation <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="regDesignationFaculty" class="form-control" placeholder="e.g. Assistant Professor / Associate Professor">
+                                    <div class="invalid-feedback">Academic designation is required.</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="regDepartmentFaculty" class="form-label">Department / School</label>
+                                <input type="text" id="regDepartmentFaculty" class="form-control" placeholder="e.g. Department of Information Technology">
+                            </div>
+                        </div>
+
+                        <!-- External Participant Specific Fields -->
+                        <div id="externalSpecificGroup" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regExternalRole" class="form-label">
+                                        Designation / Professional Status <span class="required">*</span>
+                                    </label>
+                                    <input type="text" id="regExternalRole" class="form-control" placeholder="e.g. Software Engineer / Startup Founder / External Scholar">
+                                    <div class="invalid-feedback">Professional status is required.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="regExternalOrg" class="form-label">Organization / Industry Domain</label>
+                                    <input type="text" id="regExternalOrg" class="form-control" placeholder="e.g. FinTech / HealthTech / Software Lab">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="regExternalId" class="form-label">Participant ID / Govt ID Reference</label>
+                                <input type="text" id="regExternalId" class="form-control" placeholder="e.g. EXT-2026-DEL">
+                            </div>
+                        </div>
+
+                        <!-- Team Details (shown conditionally for Hackathon / Pitch / Expo) -->
+                        <div id="teamDetailsGroup" style="display: none; background: var(--bg-alt); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+                            <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--primary-color);">
+                                <i class="fa-solid fa-people-group"></i> Team Information (For Competitions)
+                            </h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="regTeamName" class="form-label">Team Name (Optional)</label>
+                                    <input type="text" id="regTeamName" class="form-control" placeholder="e.g. CodeWarriors ABESIT">
+                                </div>
+                                <div class="form-group">
+                                    <label for="regTeamMembers" class="form-label">Team Member Names & Roll Nos</label>
+                                    <input type="text" id="regTeamMembers" class="form-control" placeholder="e.g. Aman (22029001), Sakshi (22029002)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Account Password (to view dashboard & download slip anytime) -->
+                        <div class="form-group">
+                            <label for="regPassword" class="form-label">
+                                Create Portal Password <span class="required">*</span>
+                            </label>
+                            <input type="password" id="regPassword" class="form-control" placeholder="At least 6 characters" required>
+                            <div class="invalid-feedback">Password must be at least 6 characters.</div>
+                            <div class="form-text">You will use your email and this password to log in and download your confirmation slip anytime.</div>
+                        </div>
+
+                        <!-- 5. Code of Conduct Checkbox -->
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <label style="display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer; font-size:0.9rem; color:var(--text-primary);">
+                                <input type="checkbox" id="regTerms" style="margin-top:0.25rem;" required>
+                                <span>I agree to follow the <strong>ABESIT Event Code of Conduct</strong> and ensure that all information provided above is accurate.</span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div style="margin-top: 2rem;">
+                            <button type="submit" id="submitRegBtn" class="btn btn-accent btn-lg" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Registration
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Success Confirmation Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content" style="max-width: 580px; text-align: center;">
+            <div class="modal-body" style="padding: 2.5rem 2rem;">
+                <div style="width: 72px; height: 72px; background: #dcfce7; color: #16a34a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; margin: 0 auto 1.25rem;">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2 style="font-size: 1.6rem; color: var(--primary-color); margin-bottom: 0.5rem;">
+                    Registration Confirmed!
+                </h2>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+                    Your entry has been recorded in the ABESIT Technical Events database.
+                </p>
+
+                <div style="background: var(--bg-alt); border: 1px dashed var(--primary-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.75rem; text-align: left;">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); font-weight: 600;">Registration ID:</div>
+                    <div style="font-size: 1.35rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.75rem;" id="successRegId">ABESIT-2026-0000</div>
+
+                    <div style="font-size: 0.85rem; color: var(--text-primary); margin-bottom: 0.35rem;">
+                        <strong>Event:</strong> <span id="successEventName">-</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-primary); margin-bottom: 0.35rem;">
+                        <strong>Participant:</strong> <span id="successParticipantName">-</span>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-primary);">
+                        <strong>Email:</strong> <span id="successEmail">-</span>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="participant-dashboard.html" id="modalViewSlipBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-ticket"></i> View Confirmation Slip
+                    </a>
+                    <a href="events.html" class="btn btn-outline">
+                        <i class="fa-solid fa-calendar-plus"></i> Register Another Event
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo-wrap" style="margin-bottom:1.25rem;">
+                        <div class="brand-icon" style="width:40px; height:40px; font-size:1.15rem;">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h2 style="font-size:1.15rem; color:#ffffff; margin:0;">ABES<span>IT</span></h2>
+                            <p style="color:#94a3b8; font-size:0.75rem;">Ghaziabad, Uttar Pradesh</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        ABES Institute of Technology (ABESIT) is a premier engineering institution affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="events.html"><i class="fa-solid fa-angle-right"></i> All Technical Events</a></li>
+                        <li><a href="register.html"><i class="fa-solid fa-angle-right"></i> Online Registration</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right"></i> Participant Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Event Tracks</h4>
+                    <ul class="footer-links">
+                        <li><a href="events.html?cat=Hackathon"><i class="fa-solid fa-angle-right"></i> National Hackathons</a></li>
+                        <li><a href="events.html?cat=Workshop"><i class="fa-solid fa-angle-right"></i> AI Workshops</a></li>
+                        <li><a href="events.html?cat=FDP"><i class="fa-solid fa-angle-right"></i> Faculty Dev Programs</a></li>
+                        <li><a href="events.html?cat=Startup+Expo"><i class="fa-solid fa-angle-right"></i> Startup Expos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Campus: 19th Km Stone, NH-09, Ghaziabad, UP - 201009</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 9811002233</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>events@abesit.in</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 ABES Institute of Technology (ABESIT), Ghaziabad. All Rights Reserved.</div>
+                <div>Event Registration & Management Portal</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

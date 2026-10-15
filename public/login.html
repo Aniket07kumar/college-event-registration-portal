@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Login | ABESIT Ghaziabad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Notice Bar -->
+    <div class="top-notice-bar">
+        <div class="container">
+            <div class="top-notice-content">
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span><strong>ABES Institute of Technology (ABESIT)</strong>, Ghaziabad</span>
+                </div>
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Secure Event Authentication Portal</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo-wrap">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>ABES<span>IT</span></h1>
+                        <p>Event Registration Portal</p>
+                    </div>
+                </a>
+
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="events.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Events</a></li>
+                    <li><a href="index.html#schedule" class="nav-link"><i class="fa-solid fa-clock"></i> Schedule</a></li>
+                    <li><a href="index.html#speakers" class="nav-link"><i class="fa-solid fa-microphone"></i> Speakers</a></li>
+                    <li><a href="register.html" class="nav-link"><i class="fa-solid fa-id-card"></i> Register</a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+                    <li class="nav-auth-buttons" id="navAuthButtons">
+                        <a href="login.html" class="btn btn-outline btn-sm active">
+                            <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+                        </a>
+                        <a href="register.html" class="btn btn-accent btn-sm">
+                            <i class="fa-solid fa-user-plus"></i> Register Now
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Header Banner -->
+        <section style="background: linear-gradient(135deg, var(--primary-dark), var(--primary-color)); color:#ffffff; padding: 3rem 0 2.5rem;">
+            <div class="container" style="text-align: center;">
+                <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--accent-color); border-color: rgba(255,255,255,0.2);">
+                    Module 3: Authentication
+                </span>
+                <h1 style="color:#ffffff; font-size:2.4rem; margin-bottom: 0.5rem;">Sign In to Your Account</h1>
+                <p style="color:#cbd5e1; font-size: 1rem; max-width: 550px; margin: 0 auto;">
+                    Access your registered technical events, download passes, or manage college event registries.
+                </p>
+            </div>
+        </section>
+
+        <!-- Login Container -->
+        <section class="section" style="padding: 3rem 0 5rem;">
+            <div class="container" style="max-width: 550px;">
+                <div class="form-card">
+                    <!-- Dual Login Tabs (Participant Login / Admin Login) -->
+                    <div class="form-tabs">
+                        <button type="button" class="form-tab-btn login-tab-btn active" data-role="participant">
+                            <i class="fa-solid fa-users"></i> Participant Login
+                        </button>
+                        <button type="button" class="form-tab-btn login-tab-btn" data-role="admin">
+                            <i class="fa-solid fa-user-shield"></i> Admin Login
+                        </button>
+                    </div>
+
+                    <!-- Role Badge / Subtitle -->
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <div id="loginRoleBadge">
+                            <span class="badge badge-student"><i class="fa-solid fa-user"></i> Participant Login</span>
+                        </div>
+                        <p id="loginRoleHelp" style="font-size:0.825rem; color:var(--text-secondary); margin-top:0.4rem;">
+                            For Registered Students, Faculty, and External Participants
+                        </p>
+                    </div>
+
+                    <form id="loginForm" novalidate>
+                        <div class="form-group">
+                            <label for="loginEmail" class="form-label">
+                                Registered Email Address <span class="required">*</span>
+                            </label>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="e.g. rahul.verma@abesit.in" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.45rem;">
+                                <label for="loginPassword" class="form-label" style="margin-bottom:0;">
+                                    Password <span class="required">*</span>
+                                </label>
+                                <a href="contact.html" style="font-size:0.8rem; color:var(--text-secondary);">Forgot Password?</a>
+                            </div>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your account password" required>
+                            <div class="invalid-feedback">Password is required (min 6 characters).</div>
+                        </div>
+
+                        <div style="margin-top: 1.75rem;">
+                            <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-lg" style="width: 100%;">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In to Portal
+                            </button>
+                        </div>
+
+                        <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:var(--text-secondary);">
+                            Not registered yet? <a href="register.html" style="font-weight:600; color:var(--primary-color);">Register for an Event &rarr;</a>
+                        </div>
+                    </form>
+
+                    <!-- Quick Demo Credentials Filler -->
+                    <div style="margin-top:2.5rem; padding-top:1.5rem; border-top:1px dashed var(--border-color);">
+                        <div style="font-size:0.8rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:0.75rem; text-align:center;">
+                            <i class="fa-solid fa-bolt" style="color:var(--accent-color);"></i> 1-Click Demo Accounts (For Testing)
+                        </div>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.6rem;">
+                            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemoCredentials('rahul.verma@abesit.in', 'student123', 'participant')">
+                                <i class="fa-solid fa-user-graduate"></i> Student (Rahul)
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemoCredentials('dr.priya.sharma@abesit.in', 'faculty123', 'participant')">
+                                <i class="fa-solid fa-chalkboard-user"></i> Faculty (Dr. Priya)
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline" onclick="fillDemoCredentials('neha.gupta@techinnovators.com', 'external123', 'participant')">
+                                <i class="fa-solid fa-briefcase"></i> External (Neha)
+                            </button>
+                            <button type="button" class="btn btn-sm btn-outline" style="border-color:var(--accent-color); color:var(--primary-color);" onclick="fillDemoCredentials('admin@abesit.in', 'admin123', 'admin')">
+                                <i class="fa-solid fa-user-shield"></i> Admin (Convener)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="brand-logo-wrap" style="margin-bottom:1.25rem;">
+                        <div class="brand-icon" style="width:40px; height:40px; font-size:1.15rem;">
+                            <i class="fa-solid fa-atom"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h2 style="font-size:1.15rem; color:#ffffff; margin:0;">ABES<span>IT</span></h2>
+                            <p style="color:#94a3b8; font-size:0.75rem;">Ghaziabad, Uttar Pradesh</p>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        ABES Institute of Technology (ABESIT) is a premier engineering institution affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="events.html"><i class="fa-solid fa-angle-right"></i> All Technical Events</a></li>
+                        <li><a href="register.html"><i class="fa-solid fa-angle-right"></i> Online Registration</a></li>
+                        <li><a href="login.html"><i class="fa-solid fa-angle-right"></i> Login Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Event Tracks</h4>
+                    <ul class="footer-links">
+                        <li><a href="events.html?cat=Hackathon"><i class="fa-solid fa-angle-right"></i> National Hackathons</a></li>
+                        <li><a href="events.html?cat=Workshop"><i class="fa-solid fa-angle-right"></i> AI Workshops</a></li>
+                        <li><a href="events.html?cat=FDP"><i class="fa-solid fa-angle-right"></i> Faculty Dev Programs</a></li>
+                        <li><a href="events.html?cat=Startup+Expo"><i class="fa-solid fa-angle-right"></i> Startup Expos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Campus: 19th Km Stone, NH-09, Ghaziabad, UP - 201009</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 9811002233</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>events@abesit.in</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 ABES Institute of Technology (ABESIT), Ghaziabad. All Rights Reserved.</div>
+                <div>Event Registration & Management Portal</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>
