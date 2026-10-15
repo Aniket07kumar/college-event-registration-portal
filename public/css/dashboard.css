@@ -1,0 +1,405 @@
+/* ==========================================================================
+   Dashboard Stylesheet (Participant & Admin Portals)
+   ========================================================================== */
+
+.dashboard-layout {
+    padding: 2.5rem 0 4rem;
+}
+
+.dashboard-header {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.user-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.user-avatar-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(15, 43, 72, 0.2);
+}
+
+.user-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+}
+
+/* KPI Summary Cards Grid */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: var(--transition);
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.kpi-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.kpi-icon-blue { background: #e0f2fe; color: #0284c7; }
+.kpi-icon-green { background: #dcfce7; color: #16a34a; }
+.kpi-icon-amber { background: #fef3c7; color: #d97706; }
+.kpi-icon-purple { background: #f3e8ff; color: #9333ea; }
+.kpi-icon-navy { background: #e2e8f0; color: #0f2b48; }
+
+.kpi-details h4 {
+    font-size: 1.85rem;
+    color: var(--primary-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.kpi-details p {
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Dashboard Content Tabs */
+.dashboard-nav-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.dash-tab-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: transparent;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.dash-tab-btn:hover {
+    color: var(--primary-color);
+}
+
+.dash-tab-btn.active {
+    color: var(--primary-color);
+}
+
+.dash-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px 3px 0 0;
+}
+
+/* Search and Filters Toolbar */
+.filter-toolbar {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+}
+
+.filter-selects {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filter-selects select {
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Data Table */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.data-table th {
+    background: #f8fafc;
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+
+.data-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.participant-name-cell {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.participant-subtext {
+    font-size: 0.775rem;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+/* Confirmation Slip / Ticket Badge Component */
+.confirmation-slip {
+    background: #ffffff;
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.slip-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(15, 43, 72, 0.04);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.slip-header {
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.slip-college-name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.slip-subheading {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.slip-pass-title {
+    background: var(--primary-color);
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.35rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 0.75rem;
+    text-transform: uppercase;
+}
+
+.slip-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.slip-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.slip-field-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.2rem;
+}
+
+.slip-field-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.slip-qr-box {
+    text-align: center;
+    border-left: 1px dashed var(--border-color);
+    padding-left: 1.5rem;
+}
+
+.slip-qr-code {
+    width: 120px;
+    height: 120px;
+    background: #f1f5f9;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin: 0 auto 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+.slip-footer {
+    border-top: 1px dashed var(--border-color);
+    padding-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Empty State Component */
+.empty-state {
+    text-align: center;
+    padding: 3.5rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+.empty-state i {
+    font-size: 3.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    max-width: 450px;
+    margin: 0 auto 1.5rem;
+}

@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Print Stylesheet for Event Confirmation Slip & ID Badges
+   ========================================================================== */
+
+@media print {
+    /* Hide everything except the confirmation slip */
+    body * {
+        visibility: hidden;
+    }
+
+    #printableConfirmationSlip,
+    #printableConfirmationSlip * {
+        visibility: visible;
+    }
+
+    #printableConfirmationSlip {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 20px !important;
+        border: 2px solid #0f2b48 !important;
+        box-shadow: none !important;
+    }
+
+    /* Remove buttons and modal wrappers during print */
+    .modal-header,
+    .modal-footer,
+    .btn,
+    .main-header,
+    .main-footer,
+    .top-notice-bar {
+        display: none !important;
+    }
+}
