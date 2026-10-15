@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Dashboard | ABESIT Ghaziabad</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Main & Dashboard Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Top Notice Bar -->
+    <div class="top-notice-bar" style="background:#0a1c30;">
+        <div class="container">
+            <div class="top-notice-content">
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span><strong>ABES Institute of Technology (ABESIT)</strong>, Ghaziabad</span>
+                </div>
+                <div class="top-notice-item">
+                    <i class="fa-solid fa-lock" style="color:var(--accent-color);"></i>
+                    <span>Authorized Administrative Access Only</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="brand-logo-wrap">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-atom"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h1>ABES<span>IT</span></h1>
+                        <p>Event Administration Console</p>
+                    </div>
+                </a>
+
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+                    <li><a href="events.html" class="nav-link"><i class="fa-solid fa-calendar-days"></i> Public Events</a></li>
+                    <li><a href="admin-dashboard.html" class="nav-link active"><i class="fa-solid fa-gauge-high"></i> Admin Console</a></li>
+                    <li><a href="register.html" class="nav-link"><i class="fa-solid fa-plus"></i> Register Form</a></li>
+                    <li class="nav-auth-buttons">
+                        <button type="button" class="btn btn-outline btn-sm" onclick="logoutUser()">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        <div class="container">
+            <!-- Admin Top Welcome Banner -->
+            <div class="dashboard-header">
+                <div class="user-profile-badge">
+                    <div class="user-avatar-circle" style="background: linear-gradient(135deg, #0f2b48, #d97706);">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="user-info">
+                        <h2>Administrator Console</h2>
+                        <div class="user-meta">
+                            <span class="badge badge-admin">EVENT CONVENER / ADMIN</span>
+                            <span><i class="fa-solid fa-user"></i> <strong id="adminNameDisplay">ABESIT Admin</strong></span>
+                            <span><i class="fa-solid fa-building-columns"></i> ABESIT Ghaziabad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Admin Action Buttons (Reports & Add Event) -->
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="exportRegistrationsCSV()">
+                        <i class="fa-solid fa-file-csv"></i> Export CSV Report
+                    </button>
+                    <button type="button" class="btn btn-outline btn-sm" onclick="printSummaryReport()">
+                        <i class="fa-solid fa-print"></i> Print Summary
+                    </button>
+                    <button type="button" class="btn btn-accent btn-sm" onclick="openModal('createEventModal')">
+                        <i class="fa-solid fa-plus-circle"></i> Add New Event
+                    </button>
+                </div>
+            </div>
+
+            <!-- KPI Summary Metric Cards (Module 4: Admin View & Reports) -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-blue">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="kpi-details">
+                        <h4 id="statTotalReg">0</h4>
+                        <p>Total Registrations</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-green">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <div class="kpi-details">
+                        <h4 id="statStudents">0</h4>
+                        <p>Student Participants</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-amber">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div class="kpi-details">
+                        <h4 id="statFaculty">0</h4>
+                        <p>Faculty Participants</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-purple">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div class="kpi-details">
+                        <h4 id="statExternal">0</h4>
+                        <p>External Participants</p>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-icon-navy">
+                        <i class="fa-solid fa-calendar-star"></i>
+                    </div>
+                    <div class="kpi-details">
+                        <h4 id="statEvents">0</h4>
+                        <p>Active Events</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Overview: Event Distribution & Quick Tools -->
+            <div style="display:grid; grid-template-columns: 1.8fr 1.2fr; gap:1.5rem; margin-bottom:2rem;">
+                <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.5rem; box-shadow:var(--shadow-sm);">
+                    <h3 style="font-size:1.15rem; color:var(--primary-color); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+                        <i class="fa-solid fa-chart-pie" style="color:var(--accent-color);"></i> Registrations Distribution by Event
+                    </h3>
+                    <div id="eventDistributionList">
+                        <p style="color:var(--text-secondary);font-size:0.85rem;">Loading distribution...</p>
+                    </div>
+                </div>
+
+                <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.5rem; box-shadow:var(--shadow-sm);">
+                    <h3 style="font-size:1.15rem; color:var(--primary-color); margin-bottom:1rem; display:flex; align-items:center; gap:0.5rem;">
+                        <i class="fa-solid fa-file-waveform" style="color:var(--secondary-color);"></i> Report & Export Options
+                    </h3>
+                    <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:1.25rem;">
+                        Download verified registrant lists for entry scanning, certificate generation, and audit compliance.
+                    </p>
+                    <div style="display:flex; flex-direction:column; gap:0.75rem;">
+                        <button type="button" class="btn btn-outline" style="justify-content:flex-start;" onclick="exportRegistrationsCSV()">
+                            <i class="fa-solid fa-file-csv" style="color:#16a34a;"></i> Download Full CSV Sheet (All Fields)
+                        </button>
+                        <button type="button" class="btn btn-outline" style="justify-content:flex-start;" onclick="printSummaryReport()">
+                            <i class="fa-solid fa-print" style="color:var(--primary-color);"></i> Print Formatted Summary Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Participants Management Section (Module 4 & Module 6) -->
+            <div style="margin-bottom: 1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+                <div>
+                    <h3 style="font-size:1.4rem; color:var(--primary-color); margin:0;">
+                        Participant Management & Registrations
+                    </h3>
+                    <p style="color:var(--text-secondary); font-size:0.875rem; margin:0;">
+                        Search, filter, update participant status, or remove duplicate/invalid registrations.
+                    </p>
+                </div>
+                <div style="font-size:0.85rem; font-weight:600; color:var(--text-secondary);" id="tableFilteredCount">
+                    Loading participants...
+                </div>
+            </div>
+
+            <!-- Search & Filters Toolbar -->
+            <div class="filter-toolbar">
+                <!-- Search Box -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="adminSearchInput" placeholder="Search by name, email, roll no, college, or reg ID...">
+                </div>
+
+                <!-- Select Filters -->
+                <div class="filter-selects">
+                    <select id="adminEventFilter">
+                        <option value="All">All Events</option>
+                    </select>
+
+                    <select id="adminTypeFilter">
+                        <option value="All">All Categories</option>
+                        <option value="student">Students</option>
+                        <option value="faculty">Faculty</option>
+                        <option value="external">External</option>
+                    </select>
+
+                    <select id="adminStatusFilter">
+                        <option value="All">All Statuses</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Attended">Attended</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Registrations Data Table -->
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Reg ID & Date</th>
+                            <th>Participant Info</th>
+                            <th>Category</th>
+                            <th>College & Roll/ID</th>
+                            <th>Registered Event</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="registrationsTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align:center; padding:3rem;">
+                                <i class="fa-solid fa-circle-notch fa-spin" style="font-size:2rem; color:var(--primary-color);"></i>
+                                <p style="margin-top:0.75rem; color:var(--text-secondary);">Loading registrations from MongoDB...</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal 1: View Participant Full Details -->
+    <div class="modal-overlay" id="viewParticipantModal">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-id-card"></i> Participant Details</h3>
+                <button type="button" class="modal-close" onclick="closeModal('viewParticipantModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="participantModalBody">
+                <!-- Populated dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" onclick="closeModal('viewParticipantModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Update Registration Status (Module 6: PUT Update) -->
+    <div class="modal-overlay" id="updateStatusModal">
+        <div class="modal-content" style="max-width: 480px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-pen-to-square"></i> Update Participant Status</h3>
+                <button type="button" class="modal-close" onclick="closeModal('updateStatusModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="updateStatusSelect" class="form-label">Registration Status</label>
+                    <select id="updateStatusSelect" class="form-control">
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Attended">Attended (Entry Verified)</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                    <div class="form-text">Marking 'Attended' confirms gate entry at the venue.</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('updateStatusModal')">Cancel</button>
+                <button type="button" id="saveStatusBtn" class="btn btn-primary btn-sm" onclick="handleStatusUpdateSubmit()">
+                    Save Status
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Confirm Delete Registration (Module 4 & 6: DELETE Registration) -->
+    <div class="modal-overlay" id="deleteConfirmModal">
+        <div class="modal-content" style="max-width: 480px; text-align: center;">
+            <div class="modal-body" style="padding: 2rem 1.5rem;">
+                <div style="width:64px;height:64px;background:#fee2e2;color:#dc2626;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1.25rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 style="font-size:1.35rem; color:var(--primary-color); margin-bottom:0.5rem;">Delete Registration?</h3>
+                <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1.5rem;">
+                    Are you sure you want to delete registration for <strong id="deleteTargetName">Participant</strong>? This action cannot be undone and will restore 1 event seat.
+                </p>
+                <div style="display:flex; justify-content:center; gap:0.75rem;">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('deleteConfirmModal')">Cancel</button>
+                    <button type="button" id="confirmDeleteBtn" class="btn btn-danger btn-sm" onclick="confirmDeleteRegistration()">
+                        <i class="fa-solid fa-trash-can"></i> Yes, Delete Registration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Create New Event -->
+    <div class="modal-overlay" id="createEventModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fa-solid fa-plus-circle"></i> Publish New Technical Event</h3>
+                <button type="button" class="modal-close" onclick="closeModal('createEventModal')">&times;</button>
+            </div>
+            <form id="newEventForm">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newEventTitle" class="form-label">Event Title <span class="required">*</span></label>
+                            <input type="text" id="newEventTitle" class="form-control" placeholder="e.g. ABESIT AI Hackathon 2026" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newEventCategory" class="form-label">Category <span class="required">*</span></label>
+                            <select id="newEventCategory" class="form-control" required>
+                                <option value="Hackathon">Hackathon</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="FDP">FDP</option>
+                                <option value="Startup Expo">Startup Expo</option>
+                                <option value="Pitch Competition">Pitch Competition</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newEventDate" class="form-label">Event Date <span class="required">*</span></label>
+                            <input type="text" id="newEventDate" class="form-control" placeholder="e.g. December 20-21, 2026" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="newEventTime" class="form-label">Event Time <span class="required">*</span></label>
+                            <input type="text" id="newEventTime" class="form-control" placeholder="e.g. 09:30 AM - 04:30 PM" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="newEventVenue" class="form-label">Venue</label>
+                            <input type="text" id="newEventVenue" class="form-control" placeholder="e.g. Campus Auditorium, ABESIT">
+                        </div>
+                        <div class="form-group">
+                            <label for="newEventSeats" class="form-label">Max Seat Capacity</label>
+                            <input type="number" id="newEventSeats" class="form-control" value="150">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newEventShortDesc" class="form-label">Short Tagline Summary <span class="required">*</span></label>
+                        <input type="text" id="newEventShortDesc" class="form-control" placeholder="Brief 1-line description" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newEventDesc" class="form-label">Full Event Description <span class="required">*</span></label>
+                        <textarea id="newEventDesc" class="form-control" rows="3" placeholder="Provide complete event details and guidelines..." required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline btn-sm" onclick="closeModal('createEventModal')">Cancel</button>
+                    <button type="submit" id="createEventBtn" class="btn btn-accent btn-sm">
+                        <i class="fa-solid fa-plus"></i> Publish Event
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Global Footer -->
+    <footer class="main-footer" style="padding: 2.5rem 0 1.5rem;">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding:0;">
+                <div>&copy; 2026 ABES Institute of Technology (ABESIT), Ghaziabad. All Rights Reserved.</div>
+                <div>Administrator Event Management Console</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
